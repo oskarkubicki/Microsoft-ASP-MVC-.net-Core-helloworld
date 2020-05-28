@@ -8,17 +8,23 @@ namespace MvcMovie.Controllers
         // 
         // GET: /HelloWorld/
 
-        public string Index()
+        public IActionResult Index()
         {
-            return "This is my default action...";
+            return View();
         }
 
         // 
         // GET: /HelloWorld/Welcome/ 
 
-        public string Welcome()
-        {
-            return "This is the Welcome action method...";
+       
+        
+            public IActionResult Welcome(string name, int numTimes = 1)
+            {
+                ViewData["Message"] = "Hello " + name;
+                ViewData["NumTimes"] = numTimes;
+
+                return View();
+            }
         }
-    }
+    
 }
